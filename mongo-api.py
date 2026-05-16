@@ -45,7 +45,7 @@ def get_comentarios(bar_id: int):
 def post_comentario(bar_id: int, datos: dict):
     """Crea un nuevo comentario para un bar específico."""
     datos['bar_id'] = bar_id
-    datos['date'] = datetime.utcnow()
+    datos['date'] = datetime.now(datetime.isoformat)
     resultado = db["comentarios_bares"].insert_one(datos)
     return {"inserted_id": str(resultado.inserted_id)}
 
@@ -63,6 +63,6 @@ def get_eventos(bar_id: int):
 def post_evento(bar_id: int, datos: dict):
     """Crea un nuevo evento para un bar específico."""
     datos['bar_id'] = bar_id
-    datos['fecha_creacion'] = datetime.utcnow()
+    datos['fecha_creacion'] = datetime.now(datetime.isoformat)
     resultado = db["eventos"].insert_one(datos)
     return {"inserted_id": str(resultado.inserted_id)}
