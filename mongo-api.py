@@ -20,7 +20,7 @@ app.add_middleware(
 # Configuración de Base de Datos
 # ==========================================
 
-client = MongoClient("mongodb://ISIS2304J05202610:z0o83opBaNXC@157.253.236.88:8087")
+client = MongoClient(os.environ["MONGO_URI"])
 db = client["ISIS2304J05202610"]
 
 # ==========================================
